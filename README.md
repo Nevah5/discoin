@@ -28,14 +28,23 @@ Wir möchten die [Discord Webhook] API für unser Projekt benutzen, die sehr gut
 
 Um den zurzeitigen Preis der Währung zu bekommen benutzen wir die [Coinbase API].<br/><br/>
 
-
+## SMART Ziele
+- Funktionierende Discord Webhook Applikation mit PHP das Nachrichten in einem Channel sendet und diese mit verschiedenen Intervals editiert bis Ende Woche erarbeiten.
+- Die Coinbase API mit der Discord Webhook Applikation verknüpfen.
+- Verstehen der Discord Webhook API.
+- Das Scrum Model anwenden.
+- Einen guten Teamgeist und Teamarbeit haben.
+<br/><br/>
 
 ## Teammitglieder und User Stories
 
-- Noah Geeler (API-1)
+- <strong>Noah Geeler (API-1)</strong>
     - Als Entwickler dieses Projektes möchte ich ein funktionsfähiges Programm mit integrierten APIs erstellen.
-- Marc Willhelm (API-1)
-    - Als User möchte ich mühelos Updates über den Cryptomarkt haben, damit ich immer auf dem neusten Stand bleibe.
+    - Als Benutzer der Applikation möchte ich eine möglichst einfache Installation haben.
+    - Als Betrachter des Projektes will ich eine gute Übersicht und Navigation besitzen.
+- <strong>Marc Willhelm (API-1)</strong>
+    - Als Entwickler möchte ich ein möglichst "cleanes", vertsändliches Produkt abliefern, damit es jeder verstehen kann.
+    - Als Benutzer möchte ich mühelos Updates über den Cryptomarkt haben, damit ich immer auf dem neusten Stand bleibe.
 <br/><br/>
 
 ## Team Kodex
