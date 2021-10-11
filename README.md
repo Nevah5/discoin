@@ -17,7 +17,9 @@
 # Informationen zum Projekt
 ## Projektidee mit Zusammenfassung
 
-Unser Projekt ist einen Webhook auf Discord in einem Server zu erstellen, der alle paar sekunden von der [Coinbase API] den bevorzugten Cryptowährungspreis (zum Beispiel [Bitcoin]) abruft und ausgibt. Der Webhook schickt bei der Ausführung einmal eine Nachricht mit einem sogennanten Discord Embed, das den aktuellen Preis mit eventuell einem Verlauf anzeigt. Der Preis sollte dann automatisch, solange die PHP Session bestehen bleibt, jede 1-2 Minuten aktualisiert werden (indem die Nachricht editiert wird).<br/><br/>
+Dies ist das Projekt der Kalenderwoche 41 im ZLI in Zürich. Der Auftrag ist es etwas mit einer API zu machen und im Team zu arbeiten.
+
+Unsere Projektidee ist einen Webhook auf Discord in einem Server zu erstellen, der alle paar Sekunden von der [Coinbase API] den bevorzugten Cryptowährungspreis (zum Beispiel [Bitcoin]) abruft und ausgibt. Der Webhook schickt bei der Ausführung einmal eine Nachricht mit einem sogennanten Discord Embed, das den aktuellen Preis mit eventuell einem Verlauf anzeigt. Der Preis sollte dann automatisch, solange die PHP Session bestehen bleibt, jede 1-2 Minuten aktualisiert werden (indem die Nachricht editiert wird).<br/><br/>
 
 
 ## APIs
