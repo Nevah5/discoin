@@ -14,8 +14,8 @@ Um den zurzeitigen Preis der Währung zu bekommen benutzen wir die [Coinbase API
 
 ## Teammitglieder
 
-Noah Geeler (API-1)
-Marc Willhelm (API-1)
+- Noah Geeler (API-1)
+- Marc Willhelm (API-1)
 
 
 [Coinbase API]: https://developers.coinbase.com/
