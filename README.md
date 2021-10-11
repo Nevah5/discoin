@@ -1,4 +1,11 @@
-# discoin
+<p align="center">
+    <img src="media/logo.png" height="100px"></img><br>
+    <img src="media/logo-font.png" height="60px"></img><br>
+    Ein PHP-Skript um einen Kryptowährungspreis<br>
+    in Discord darzustellen.
+</p>
+
+--------------------------
 
 ## Projektidee mit Zusammenfassung
 
