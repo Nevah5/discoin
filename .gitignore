@@ -2,3 +2,4 @@ bin/
 .docker/
 .devcontainer.json
 docker-compose.yml
+*_config.json
