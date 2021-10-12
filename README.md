@@ -28,6 +28,11 @@ Wir möchten die [Discord Webhook] API für unser Projekt benutzen, die sehr gut
 
 Um den zurzeitigen Preis der Währung zu bekommen benutzen wir die [Coinbase API].<br/><br/>
 
+
+## Docker Container
+
+Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi]. So ist nachher, wenn man das Projekt herunterlädt alles funktionstüchtig und auf der neusten Version.<br/><br/>
+
 ## SMART Ziele
 - Funktionierende Discord Webhook Applikation mit PHP das Nachrichten in einem Channel sendet und diese mit verschiedenen Intervals editiert bis Ende Woche erarbeiten.
 - Die Coinbase API mit der Discord Webhook Applikation verknüpfen.
@@ -57,3 +62,6 @@ Um den zurzeitigen Preis der Währung zu bekommen benutzen wir die [Coinbase API
 [Coinbase API]: https://developers.coinbase.com/
 [Discord Webhook]: https://discord.com/developers/docs/resources/webhook
 [Bitcoin]: https://www.google.com/search?q=bitcoin&rlz=1C1YTUH_enCH962CH963&oq=bitcoin+&aqs=chrome.0.69i59l4j0i131i433i512l2j69i61l2.2181j1j7&sourceid=chrome&ie=UTF-8
+[foxfabi]: https://github.com/foxfabi
+[Container]: https://github.com/foxfabi/phpDEV
+
