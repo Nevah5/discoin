@@ -9,7 +9,19 @@
 <br>
 
 # Installation
-> Dieser Bereich steht noch unter Bearbeitung
+> Information: Dieser Bereich steht unter Bearbeitung
+<br/><br/>
+
+## Windows
+```
+Platzhalter
+```
+<br/>
+
+## Linux
+```
+Platzhalter
+```
 
 <br>
 <br>
