@@ -44,8 +44,8 @@ RUN docker-php-ext-install -j$(nproc)   \
     sockets
 # copy the Composer PHAR from the Composer image into the PHP image
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-WORKDIR /opt/
-COPY ./ .
+WORKDIR /opt/code
+COPY ./code/ .
 # Smoke test
 RUN echo "PHP Version:" "$(php -v)"
 RUN echo "Composer Version:" "$(composer --version)"
