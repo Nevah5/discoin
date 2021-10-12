@@ -1,0 +1,4 @@
+bin/
+.docker/
+.devcontainer.json
+docker-compose.yml
