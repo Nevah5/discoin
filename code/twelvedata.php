@@ -1,10 +1,9 @@
 <?php
-$twelvedata_config = json_decode(file_get_contents('twelvedata_config.json'), JSON_OBJECT_AS_ARRAY);
-crypto();
 
-function crypto()
+function getCrypto()
 {
 	global $twelvedata_config;
+	global $response;
 
 	//gibt den Nutzer eine Meldung wenn dieser keinen Key angegeben hat
 	echo empty($twelvedata_config["api-key"]) ? "Bitte gib den API-KEY in der Config an!" . PHP_EOL : "";
@@ -38,12 +37,12 @@ function crypto()
 	//wandelt den Json Response in ein PHP Array um
 	$response = json_decode($response, JSON_OBJECT_AS_ARRAY);
 	//Gibt den Preis zurück
-	printf(
-		"Der Cryptocurrency Preis (%s) beträgt zurzeit %.2f %s." . PHP_EOL,
-		$twelvedata_config["cryptocurrency"],
-		(double) $response["price"],
-		$twelvedata_config["currency"]
-	);
+	// printf(
+	// 	"Der Cryptocurrency Preis (%s) beträgt zurzeit %.2f %s." . PHP_EOL,
+	// 	$twelvedata_config["cryptocurrency"],
+	// 	(double) $response["price"],
+	// 	$twelvedata_config["currency"]
+	// );
 
 	curl_close($curl);
 }

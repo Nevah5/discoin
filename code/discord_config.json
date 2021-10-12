@@ -1,9 +1,9 @@
 {
     "webhook":
-    "https://discord.com/api/webhooks/897053151176323082/3JogVsrDJXABukAHuJReBnrUflCwNIyGOEi0q26O8sH3da-34rG1ZpbQhimNSONytbWc",
-    "avatar_url":"https://github.com/Nevah5/discoin/blob/main/media/logo.png",
-    "username":"Hallo 💩💀",
+    "https://discord.com/api/webhooks/897460944442109952/thGnd7pEZO_YJNTG5I3qYOZmofsesfBXmc0WPweuvM-AHLQQkvBx4xZ6USay1jSlLVXc",
+    "avatar_url":"https://cdn.discordapp.com/avatars/897460944442109952/a1b7f7a4c29fb4853ee5ca45386570b7.webp?size=256",
+    "username":"Cryptowährungspreis",
     "message":{
-        "content":"Bonjoasdur!"
+        "content":""
     }
 }
