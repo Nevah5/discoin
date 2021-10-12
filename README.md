@@ -26,7 +26,10 @@ Unsere Projektidee ist einen Webhook auf Discord in einem Server zu erstellen, d
 
 Wir möchten die [Discord Webhook] API für unser Projekt benutzen, die sehr gut dokumentiert und nicht all zu leicht ist. Dort können wir unsere Applikation ([Coinbase API]) mit Discord verknüpfen.
 
-Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht.<br/><br/>
+Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht.
+
+Um den Bitcoin Verlauf darzustellen können wir eine API von Google benutzen, nämlich die [Chart API].
+<br/><br/>
 
 
 ## Docker Container
@@ -66,4 +69,5 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 [Container]: https://github.com/foxfabi/phpDEV
 [Rapid API]: https://rapidapi.com/twelvedata/api/twelve-data1/pricing
 [Twelvedata]: https://twelvedata.com/
+[Chart API]: https://developers-dot-devsite-v2-prod.appspot.com/chart
 
