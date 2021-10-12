@@ -7,8 +7,11 @@ $response = 0;
 include("discord.php");
 include("twelvedata.php");
 
+getCrypto();
+discordSendFirst();
+
 while(1){
+    sleep(120);
     getCrypto();
-    discordSendFirst();
-    sleep(300);
+    discordUpdate();
 }

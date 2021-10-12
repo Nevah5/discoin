@@ -6,7 +6,7 @@ function discordSendFirst()
     global $discord_config;
     global $twelvedata_config;
     global $response;
-    $message = "1 " . $twelvedata_config["cryptocurrency"] . " = " . $response["price"] . " " . $twelvedata_config["currency"];
+    $message = "1 " . $twelvedata_config["cryptocurrency"] . " = " . round($response["price"], 2) . " " . $twelvedata_config["currency"];
 
     $url = $discord_config["webhook"];
 
@@ -33,15 +33,15 @@ function discordSendFirst()
     curl_close( $ch );
 }
 
-function discordUpdate($messageID)
+function discordUpdate()
 {
     //Discord Webhook API
-    global $discord_config;
+    $discord_config = json_decode(file_get_contents('discord_config.json'), JSON_OBJECT_AS_ARRAY);
     global $twelvedata_config;
     global $response;
-    $message = "1 " . $twelvedata_config["cryptocurrency"] . " = " . $response["price"] . " " . $twelvedata_config["currency"];
+    $message = "1 " . $twelvedata_config["cryptocurrency"] . " = " . round($response["price"], 2) . " " . $twelvedata_config["currency"];
 
-    $url = $discord_config["webhook"];
+    $url = $discord_config["webhook"] . "/messages/" . $discord_config["message"]["id"];
 
     $hookObject = json_encode([
         "username" => $discord_config["username"],
