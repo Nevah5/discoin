@@ -8,10 +8,10 @@ include("discord.php");
 include("twelvedata.php");
 
 getCrypto();
-discordSendFirst();
+discordMessage("send");
 
-while(1){
-    sleep(120);
-    getCrypto();
-    discordUpdate();
-}
+// while(1){
+//     sleep(120);
+//     getCrypto();
+//     discordMessage("edit");
+// }
