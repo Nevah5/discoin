@@ -9,5 +9,6 @@
     "currency": "CHF",
     "cryptocurrency": "BTC",
     "api-host": "twelve-data1.p.rapidapi.com",
-    "api-key": "API_KEY_HERE"
+    "api-key": "API_KEY_HERE",
+    "delay": 0
 }

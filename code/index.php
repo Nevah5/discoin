@@ -1,20 +1,18 @@
 <?php
-
-$config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
-$data = [];
-$datastr = "";
 include("discord.php");
 include("twelvedata.php");
-// $response = ["price"=>random_int(45000, 55000)];
+include("cli.php");
 
-getCrypto();
-dataHistory($response);
-discordMessage("send");
+setup();
+
+$data = [];
+$datastr = "";
+
 while (1) {
-    sleep(300);
     getCrypto();
     dataHistory($response);
     discordMessage("edit");
+    sleep($config["delay"]);
 }
 
 function dataHistory($resp)
