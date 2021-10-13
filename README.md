@@ -16,12 +16,6 @@
 ```
 Platzhalter
 ```
-<br/>
-
-## Linux
-```
-Platzhalter
-```
 
 <br>
 <br>
