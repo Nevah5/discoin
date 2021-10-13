@@ -20,23 +20,20 @@ Die Installation des Discoin Webhooks ist sehr einfach, wenn man diese Schritte 
 
 ## Ablauf
 ### Docker Container
-Nach dem Download und entzippen muss man den Docker-Container ausführen installieren und starten. Bitte navigiere in den Projektordner und gib folgenden Befehl ein:
+Nach dem Download und entzippen muss man den Docker-Container ausführen installieren und starten.  Dazu öffnest du eine Konsole/Terminal deine Wahl.Navigiere dann in den Projektordner und gib folgenden Befehl ein:
 
     docker-compose -f "docker-compose.yml" up -d --build
 Die Installation sollte automatisch beginnen.
 
-Wenn nach der Installation
-> Terminal will be reused by tasks, press any key to close it.
-
-steht, kannst du im Terminal diesen Befehl eingeben:
+Wenn die Installation erfolgreich abgeschossen wurde, kannst du im Terminal diesen Befehl eingeben:
 
     docker exec -it phpdev /bin/bash
 
-Du solltest theorethisch im code Ordner der Linux Bash landen. Zuletzt musst du nur noch
+Du solltest dann im code Ordner `/opt/code` in der Linux Bash landen. Zuletzt musst du nur noch
 
     php index.php
 
-Eingeben und die restlichen Fragen beantworten.
+eingeben.
 <br><br>
 
 ### Setup Discoin Webhook
