@@ -50,7 +50,10 @@ Hoffentlich hast du bereits im Voraus deinen [Rapid API] Key generieren lassen u
 `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
 Wenn du den Webhook noch nie Konfiguriert hast für einen Channel, musst du (falls vorhanden) die generierte `.env` Datei löschen und das Skript erneut ausführen. So werden alle fragen erneut gefragt. Wichtig ist dabei diese Frage:
-<img src="media/examples/NewMessage.png" width="85%">
+<p align="center">
+<img src="media/examples/NewMessage.png" width="65%">
+</p>
+
 > Wie lautet die MessageID der gesendeten Nachricht?:
 `XXXXXXXXXXXXXXXXXX`
 
