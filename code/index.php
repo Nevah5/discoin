@@ -5,6 +5,7 @@ $data = [];
 $datastr = "";
 include("discord.php");
 include("twelvedata.php");
+// $response = ["price"=>random_int(45000, 55000)];
 
 getCrypto();
 dataHistory($response);

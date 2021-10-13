@@ -6,6 +6,7 @@ function discordMessage($type)
     $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
     global $response;
     global $datastr;
+    global $data;
     $currency = $config["currency"];
     $cryptocurrency = $config["cryptocurrency"];
 
@@ -16,6 +17,9 @@ function discordMessage($type)
         $url = $config["webhook"];
     }
 
+    $pricediffpercent = (string) round($response["price"] / $data[0]["price"] * 100 - 100, 2);
+    $pricediffpercent = $pricediffpercent >= 0 ? "+" . $pricediffpercent : $pricediffpercent;
+    $pricedescription = $response["price"] < $data[0]["price"] ? "Der Wert sinkt zurzeit! ($pricediffpercent%)" : "Der Wert steigt zurzeit! ($pricediffpercent%)";
     $hookObject = json_encode([
         "username" => $config["username"],
         "avatar_url" => $config["avatar_url"],
@@ -31,7 +35,7 @@ function discordMessage($type)
                 "type" => "rich",
 
                 // A description for your embed
-                "description" => "Preisbeschreibung (sinkend/steigend)",
+                "description" => $pricedescription,
 
                 // The URL of where your title will be a link to
                 // "url" => "https://www.google.com/",
