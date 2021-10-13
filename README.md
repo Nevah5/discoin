@@ -8,33 +8,68 @@
 --------------------------
 <br>
 
-# Installation
-Die Installation des Discoin Webhooks ist sehr einfach wenn man diese Schrite Verfolgt
+# Installation für Windows 10
+Die Installation des Discoin Webhooks ist sehr einfach, wenn man diese Schritte befolgt
+<br/><br/>
+
 ## Voraussetzungen
-- Windows 10
-- [Docker]
-- [Discord]
+- [Docker] vollständig installiert
+- [Discord] und einen [Webhook]
 - [Rapid API] Key
+<br/><br/>
 
-1. Nach dem Downloaden und entzippen muss man den Docker container ausführen das macht man durch den
+## Ablauf
+### Docker Container
+Nach dem Download und entzippen muss man den Docker-Container ausführen installieren und starten. Bitte navigiere in den Projektordner und gib folgenden Befehl ein:
 
+    docker-compose -f "docker-compose.yml" up -d --build
+Die Installation sollte automatisch beginnen.
 
-2. Mann öffnet ein Terminal im Discoin ordner, und tippt diese nachticht ein 
+Wenn nach der Installation
+> Terminal will be reused by tasks, press any key to close it.
 
+steht, kannst du im Terminal diesen Befehl eingeben:
 
-```docker exec -it phpdev /bin/bash```
+    docker exec -it phpdev /bin/bash
 
-3. Man gibt dan den unterstehenden Comand ein
+Du solltest theorethisch im code Ordner der Linux Bash landen. Zuletzt musst du nur noch
 
+    php index.php
 
-``` php Index.php``` 
+Eingeben und die restlichen Fragen beantworten.
+<br><br>
 
-4. Danach wird ihnen ein par fragen gestelt welche mann dan Beantworten muss für den discord webhook url muss man in einem Server in dem man berechtigungen hatt in die **Einstelungen** danach in die **Intergrations** da die Weebhook adrese kopiern die ein Tippen. Nach all den Fragen soll es laufen
+### Setup Discoin Webhook
+Wenn das `index.php` gestartet wurde und die Datei `.env` noch nicht existiert, wird nach folgenden Fragen gefragt.
+
+> Bitte gib die Webhook URL ein:
+`https://discord.com/api/webhooks/XXXXXXXXXXXXX/XXXXXXXXXXXXXXXXX`
+
+Hier bitten wir dich die URL des Discord [Webhook]s einzugeben.
+
+Hoffentlich hast du bereits im Voraus deinen [Rapid API] Key generieren lassen und diesen bereits kopiert. Er sollte bei der nächsten Frage eingegeben werden, um Abfragen des Bitcoin Wertes zu machen.
+
+> Bitte gib den Rapid-API Key ein:
+`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+
+Wenn du den Webhook noch nie Konfiguriert hast für einen Channel, musst du (falls vorhanden) die generierte `.env` Datei löschen und das Skript erneut ausführen. So werden alle fragen erneut gefragt. Wichtig ist dabei diese Frage:
+> Wie lautet die MessageID der gesendeten Nachricht?:
+`XXXXXXXXXXXXXXXXXX`
+
+> **BILD PLATZHALTER**
+
+Um die ID herauszufinden musst du den [Developer Mode] auf Discord aktiviert haben. Dann klickst du rechts, neben der Nachricht auf die Punkte und wählst `Copy ID` aus. Die ID wird dir dann direkt in das Clipboard gespeichert und du kannst mit Rechtsklick diesen in die Konsole einfügen.
+<br/><br/>
+
+### Währungen
+Um die normale Währung zu ändern musst du nach dem Setup den Webhook mit <kbd>CTRL</kbd> + <kbd>C</kbd> stoppen und in `.env` die Werte dazu anpassen. Dort gelten die [ISO-4217] Währungskürzel. Für die Cryptowährungen gelten die bekanntesten. Leider gibt es hier für keine Liste.
+
+<br>
+
+Nun sollte der Webhook im Hintergrund die Nachricht solange aktualisieren, wie das Terminal offen bleibt.
 
 **Viel Spass**
 <br/><br/>
-<br>
-<br>
 
 # Informationen zum Projekt
 ## Projektidee mit Zusammenfassung
@@ -48,7 +83,8 @@ Unsere Projektidee ist einen Webhook auf Discord in einem Server zu erstellen, d
 
 Wir möchten die [Discord Webhook] API für unser Projekt benutzen, die sehr gut dokumentiert und nicht all zu leicht ist. Dort können wir unsere Applikation ([Coinbase API]) mit Discord verknüpfen.
 
-Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht.<br/><br/>
+Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht.
+<br/><br/>
 
 
 ## Docker Container
@@ -75,11 +111,11 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 <br/><br/>
 
 ## Team Kodex
-    1. Ehrlichkeit hat hier oberste Priorität.
-    2. Man steht zu seinen Fehlern.
-    3. Sauber und sorgfältig arbeiten.
-    4. Spass haben.
-    5. Oft COMMITTEN.
+1. Ehrlichkeit hat hier oberste Priorität.
+2. Man steht zu seinen Fehlern.
+3. Sauber und sorgfältig arbeiten.
+4. Spass haben.
+5. Oft COMMITTEN.
 
 [Coinbase API]: https://developers.coinbase.com/
 [Discord Webhook]: https://discord.com/developers/docs/resources/webhook
@@ -88,5 +124,8 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 [Container]: https://github.com/foxfabi/phpDEV
 [Rapid API]: https://rapidapi.com/twelvedata/api/twelve-data1/pricing
 [Twelvedata]: https://twelvedata.com/
-[Docker]: https://www.docker.com/
+[Docker]: https://docs.docker.com/desktop/windows/install/
 [Discord]: https://discord.com/
+[Webhook]: https://support.discord.com/hc/de/articles/228383668-Einleitung-in-Webhooks
+[Developer Mode]: https://www.howtogeek.com/714348/how-to-enable-or-disable-developer-mode-on-discord/
+[ISO-4217]: https://de.wikipedia.org/wiki/ISO_4217
