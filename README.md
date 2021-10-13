@@ -19,13 +19,19 @@ Die Installation des Discoin Webhooks ist sehr einfach wenn man diese Schrite Ve
 1. Nach dem Downloaden und entzippen muss man den Docker container ausführen das macht man durch den
 
 
-2. Mann öffnet öffned ein Terminal und tippt diese nachticht ein 
+2. Mann öffnet ein Terminal im Discoin ordner, und tippt diese nachticht ein 
 
 
 ```docker exec -it phpdev /bin/bash```
 
-3. Man ruft in der 
+3. Man gibt dan den unterstehenden Comand ein
 
+
+``` php Index.php``` 
+
+4. Danach wird ihnen ein par fragen gestelt welche mann dan Beantworten muss für den discord webhook url muss man in einem Server in dem man berechtigungen hatt in die **Einstelungen** danach in die **Intergrations** da die Weebhook adrese kopiern die ein Tippen. Nach all den Fragen soll es laufen
+
+**Viel Spass**
 <br/><br/>
 <br>
 <br>
