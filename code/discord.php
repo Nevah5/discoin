@@ -5,11 +5,14 @@ function discordMessage($type)
     //Discord Webhook API
     $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
     global $response;
-    $message = "1 " . $config["cryptocurrency"] . " = " . round($response["price"], 2) . " " . $config["currency"];
+    global $datastr;
+    $currency = $config["currency"];
+    $cryptocurrency = $config["cryptocurrency"];
 
-    if($type == "edit"){
+
+    if ($type == "edit") {
         $url = $config["webhook"] . "/messages/" . $config["message"]["id"];
-    }else{
+    } else {
         $url = $config["webhook"];
     }
 
@@ -22,7 +25,7 @@ function discordMessage($type)
         "embeds" => [
             [
                 // Set the title for your embed
-                "title" => "XXX Kurs zu XXX",
+                "title" => "$cryptocurrency Kurs zu $currency",
 
                 // The type of your embed, will ALWAYS be "rich"
                 "type" => "rich",
@@ -46,7 +49,7 @@ function discordMessage($type)
                 ],
                 // Thumbnail object
                 "thumbnail" => [
-                    "url" => "https://pbs.twimg.com/profile_images/972154872261853184/RnOg6UyU_400x400.jpg"
+                    "url" => "https://cdn.discordapp.com/avatars/897460944442109952/a1b7f7a4c29fb4853ee5ca45386570b7.webp?size=512"
                 ],
                 // Author object
                 "author" => [
@@ -57,24 +60,29 @@ function discordMessage($type)
                 "fields" => [
                     // Field 1
                     [
-                        "name" => "XXX Preis:",
-                        "value" => $message,
+                        "name" => "1 $cryptocurrency Preis:",
+                        "value" => round($response["price"], 2) . " " . $config["currency"],
                         "inline" => false
                     ],
                     [
                         "name" => "Aktualisiert am:",
-                        "value" => date("d.m.Y H:i:s"),
+                        "value" => date("d.m.Y H:i:s", strtotime("+2 hours")),
+                        "inline" => false
+                    ],
+                    [
+                        "name" => "Die Letzten 10 $cryptocurrency Preise ($currency):",
+                        "value" => $datastr,
                         "inline" => false
                     ]
                 ]
             ]
         ]
-    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
     $ch = curl_init();
 
     $type == "edit" ? curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH') : 0;
-    curl_setopt_array( $ch, [
+    curl_setopt_array($ch, [
         CURLOPT_URL => $url,
         CURLOPT_POST => true,
         CURLOPT_POSTFIELDS => $hookObject,
@@ -83,6 +91,6 @@ function discordMessage($type)
         ]
     ]);
 
-    $hook_response = curl_exec( $ch );
-    curl_close( $ch );
+    $hook_response = curl_exec($ch);
+    curl_close($ch);
 }

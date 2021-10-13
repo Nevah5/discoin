@@ -3,38 +3,38 @@
 function getCrypto()
 {
     $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
-	global $response;
+    global $response;
 
-	//gibt den Nutzer eine Meldung wenn dieser keinen Key angegeben hat
-	echo empty($config["api-key"]) ? "Bitte gib den API-KEY in der Config an!" . PHP_EOL : "";
-	empty($config["api-key"]) ? exit : 0;
+    //gibt den Nutzer eine Meldung wenn dieser keinen Key angegeben hat
+    echo empty($config["api-key"]) ? "Bitte gib den API-KEY in der Config an!" . PHP_EOL : "";
+    empty($config["api-key"]) ? exit : 0;
 
-	$currency = $config["currency"];
-	$cryptocurrency = $config["cryptocurrency"];
-	$host = $config["api-host"];
-	$key = $config["api-key"];
-	$url = (string) "https://twelve-data1.p.rapidapi.com/price?symbol=$cryptocurrency%2F$currency&format=json&outputsize=30";
-	$curl = curl_init();
+    $currency = $config["currency"];
+    $cryptocurrency = $config["cryptocurrency"];
+    $host = $config["api-host"];
+    $key = $config["api-key"];
+    $url = (string) "https://twelve-data1.p.rapidapi.com/price?symbol=$cryptocurrency%2F$currency&format=json&outputsize=30";
+    $curl = curl_init();
 
-	curl_setopt_array($curl, [
-		CURLOPT_URL => $url,
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_FOLLOWLOCATION => true,
-		CURLOPT_ENCODING => "",
-		CURLOPT_MAXREDIRS => 10,
-		CURLOPT_TIMEOUT => 30,
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "GET",
-		CURLOPT_HTTPHEADER => [
-			"x-rapidapi-host: $host",
-			"x-rapidapi-key: $key"
-		],
-	]);
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "x-rapidapi-host: $host",
+            "x-rapidapi-key: $key"
+        ],
+    ]);
 
-	$response = curl_exec($curl);
-	$err = curl_error($curl);
-	echo $err ? "cURL Error #:" . $err : "";
-	$response = json_decode($response, JSON_OBJECT_AS_ARRAY);
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    echo $err ? "cURL Error #:" . $err : "";
+    $response = json_decode($response, JSON_OBJECT_AS_ARRAY);
 
-	curl_close($curl);
+    curl_close($curl);
 }
