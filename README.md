@@ -10,6 +10,7 @@
 
 # Installation
 > How to Instal
+> Easy Guide
 
 <br>
 <br>
