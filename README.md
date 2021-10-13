@@ -9,14 +9,24 @@
 <br>
 
 # Installation
-> Information: Dieser Bereich steht unter Bearbeitung
+Die Installation des Discoin Webhooks ist sehr einfach wenn man diese Schrite Verfolgt
+## Voraussetzungen
+- Windows 10
+- [Docker]
+- [Discord]
+- [Rapid API] Key
+
+1. Nach dem Downloaden und entzippen muss man den Docker container ausführen das macht man durch den
+
+
+2. Mann öffnet öffned ein Terminal und tippt diese nachticht ein 
+
+
+```docker exec -it phpdev /bin/bash```
+
+3. Man ruft in der 
+
 <br/><br/>
-
-## Windows
-```
-Platzhalter
-```
-
 <br>
 <br>
 
@@ -72,4 +82,5 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 [Container]: https://github.com/foxfabi/phpDEV
 [Rapid API]: https://rapidapi.com/twelvedata/api/twelve-data1/pricing
 [Twelvedata]: https://twelvedata.com/
-
+[Docker]: https://www.docker.com/
+[Discord]: https://discord.com/
