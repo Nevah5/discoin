@@ -25,7 +25,7 @@ function dataHistory($resp)
     $currency = $config["currency"];
     $datastr = "";
 
-    //delete oldest entry after 10
+    //delete oldest entry after 10 and moves each one up
     if(count($data) >= 10){
         for($i = 0; $i < count($data) - 1; $i++){
             $data[$i] = $data[$i+1];
@@ -40,6 +40,8 @@ function dataHistory($resp)
             "timestamp" => date("d.m.Y H:i:s", strtotime("+2 hours")),
         ];
     }
+
+    //puts all the last data values into a string
     foreach($data as $key => $value){
         $num = (string) $key + 1;
         $datastr .= "> $num. " . $value["price"] . " $currency -> " . $value["timestamp"] . "\n";

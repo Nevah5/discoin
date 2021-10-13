@@ -10,17 +10,21 @@ function discordMessage($type)
     $currency = $config["currency"];
     $cryptocurrency = $config["cryptocurrency"];
 
-
+    //changes url when edit message
     if ($type == "edit") {
         $url = $config["webhook"] . "/messages/" . $config["message"]["id"];
     } else {
         $url = $config["webhook"];
     }
 
+    //calculates the percentage from the last price
     $pricediffpercent = (string) round($response["price"] / $data[0]["price"] * 100 - 100, 2);
+    //adds a "+" infront of percentage if positive
     $pricediffpercent = $pricediffpercent >= 0 ? "+" . $pricediffpercent : $pricediffpercent;
+    //gives a little description with percentage to the current cryptoprice
     $pricedescription = $response["price"] < $data[0]["price"] ? "Der Wert sinkt zurzeit! ($pricediffpercent%)" : "Der Wert steigt zurzeit! ($pricediffpercent%)";
     $hookObject = json_encode([
+        //message
         "username" => $config["username"],
         "avatar_url" => $config["avatar_url"],
 
@@ -28,41 +32,23 @@ function discordMessage($type)
         "tts" => false,
         "embeds" => [
             [
-                // Set the title for your embed
                 "title" => "$cryptocurrency Kurs zu $currency",
-
-                // The type of your embed, will ALWAYS be "rich"
                 "type" => "rich",
-
-                // A description for your embed
                 "description" => $pricedescription,
-
-                // The URL of where your title will be a link to
-                // "url" => "https://www.google.com/",
-
-                /* A timestamp to be displayed below the embed, IE for when an an article was posted
-                 * This must be formatted as ISO8601
-                 */
                 "timestamp" => date("c", strtotime("now")),
-                // The integer color to be used on the left side of the embed
                 "color" => hexdec("0052FF"),
-                // Footer object
                 "footer" => [
                     "text" => "Discoin",
                     "icon_url" => "https://cdn.discordapp.com/avatars/897460944442109952/a1b7f7a4c29fb4853ee5ca45386570b7.webp?size=256",
                 ],
-                // Thumbnail object
                 "thumbnail" => [
                     "url" => "https://cdn.discordapp.com/avatars/897460944442109952/a1b7f7a4c29fb4853ee5ca45386570b7.webp?size=512"
                 ],
-                // Author object
                 "author" => [
                     "name" => "Discoin - GitHub",
                     "url" => "https://github.com/Nevah5/discoin"
                 ],
-                // Field array of objects
                 "fields" => [
-                    // Field 1
                     [
                         "name" => "1 $cryptocurrency Preis:",
                         "value" => round($response["price"], 2) . " " . $config["currency"],
