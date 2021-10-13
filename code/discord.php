@@ -3,20 +3,19 @@
 function discordMessage($type)
 {
     //Discord Webhook API
-    global $discord_config;
-    global $twelvedata_config;
+    $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
     global $response;
-    $message = "1 " . $twelvedata_config["cryptocurrency"] . " = " . round($response["price"], 2) . " " . $twelvedata_config["currency"];
+    $message = "1 " . $config["cryptocurrency"] . " = " . round($response["price"], 2) . " " . $config["currency"];
 
     if($type == "edit"){
-        $url = $discord_config["webhook"] . "/messages/" . $discord_config["message"]["id"];
+        $url = $config["webhook"] . "/messages/" . $config["message"]["id"];
     }else{
-        $url = $discord_config["webhook"];
+        $url = $config["webhook"];
     }
 
     $hookObject = json_encode([
-        "username" => $discord_config["username"],
-        "avatar_url" => $discord_config["avatar_url"],
+        "username" => $config["username"],
+        "avatar_url" => $config["avatar_url"],
 
         "content" => "",
         "tts" => false,

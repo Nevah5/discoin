@@ -2,17 +2,17 @@
 
 function getCrypto()
 {
-	global $twelvedata_config;
+    $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
 	global $response;
 
 	//gibt den Nutzer eine Meldung wenn dieser keinen Key angegeben hat
-	echo empty($twelvedata_config["api-key"]) ? "Bitte gib den API-KEY in der Config an!" . PHP_EOL : "";
-	empty($twelvedata_config["api-key"]) ? exit : 0;
+	echo empty($config["api-key"]) ? "Bitte gib den API-KEY in der Config an!" . PHP_EOL : "";
+	empty($config["api-key"]) ? exit : 0;
 
-	$currency = $twelvedata_config["currency"];
-	$cryptocurrency = $twelvedata_config["cryptocurrency"];
-	$host = $twelvedata_config["api-host"];
-	$key = $twelvedata_config["api-key"];
+	$currency = $config["currency"];
+	$cryptocurrency = $config["cryptocurrency"];
+	$host = $config["api-host"];
+	$key = $config["api-key"];
 	$url = (string) "https://twelve-data1.p.rapidapi.com/price?symbol=$cryptocurrency%2F$currency&format=json&outputsize=30";
 	$curl = curl_init();
 
@@ -34,15 +34,7 @@ function getCrypto()
 	$response = curl_exec($curl);
 	$err = curl_error($curl);
 	echo $err ? "cURL Error #:" . $err : "";
-	//wandelt den Json Response in ein PHP Array um
 	$response = json_decode($response, JSON_OBJECT_AS_ARRAY);
-	//Gibt den Preis zurück
-	// printf(
-	// 	"Der Cryptocurrency Preis (%s) beträgt zurzeit %.2f %s." . PHP_EOL,
-	// 	$twelvedata_config["cryptocurrency"],
-	// 	(double) $response["price"],
-	// 	$twelvedata_config["currency"]
-	// );
 
 	curl_close($curl);
 }
