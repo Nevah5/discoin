@@ -10,33 +10,38 @@
 
 # Installation für Windows 10
 Die Installation des Discoin Webhooks ist sehr einfach, wenn man diese Schritte befolgt
-<br/><br/>
+<br><br>
 
 ## Voraussetzungen
 - [Docker] vollständig installiert
 - [Discord] und einen [Webhook]
-- [Rapid API] Key
+- Konsole/Terminal nach Wahl (PowerShell, CMD, etc.)
 <br/><br/>
 
-## Ablauf
-### Docker Container
-Nach dem Download und entzippen muss man den Docker-Container ausführen installieren und starten.  Dazu öffnest du eine Konsole/Terminal deine Wahl.Navigiere dann in den Projektordner und gib folgenden Befehl ein:
+## Rapid API Key
+Für die Rapid API, die mit der Twelvedata API verknüpft ist, braucht man den RapidAPI Key. Dazu [erstellst du dir einen Account](https://rapidapi.com/auth/sign-up?referral=/hub). Nachdem navigierst du zu [Pricing](https://rapidapi.com/twelvedata/api/twelve-data1/pricing) und musst dort erstmals den Account für den Plan auswählen. Dann abonnierst du den Basic Plan (dieser ist gratis). Nun sollte für dich der API-Key funktionieren, den du unter "[Endpoints](https://rapidapi.com/twelvedata/api/twelve-data1/)" findest. (Dieser ist mit `X-RapidAPI-Key` unter der Kategorie `Exchanges` beschriftet.)
+<br><br>
+
+## Docker Container
+Nach dem Download und entzippen muss man den Docker-Container ausführen installieren und starten.  Dazu öffnest du eine Konsole/Terminal deine Wahl.
+
+Navigiere dann in den Projektordner und gib folgenden Befehl ein:
 
     docker-compose -f "docker-compose.yml" up -d --build
 Die Installation sollte automatisch beginnen.
 
-Wenn die Installation erfolgreich abgeschossen wurde, kannst du im Terminal diesen Befehl eingeben:
+Wenn die Installation erfolgreich abgeschlossen wurde, kannst du im Terminal diesen Befehl eingeben:
 
     docker exec -it phpdev /bin/bash
 
-Du solltest dann im code Ordner `/opt/code` in der Linux Bash landen. Zuletzt musst du nur noch
+Du solltest dich dann in der Linux Bash im Ordner `/opt/code` landen. Zuletzt musst du nur noch
 
     php index.php
 
-eingeben.
+eingeben. Dann wird die Applikation samt Setup ausgeführt.
 <br><br>
 
-### Setup Discoin Webhook
+## Setup Discoin Applikation
 Wenn das `index.php` gestartet wurde und die Datei `.env` noch nicht existiert, wird nach folgenden Fragen gefragt.
 
 > Bitte gib die Webhook URL ein:
@@ -49,7 +54,7 @@ Hoffentlich hast du bereits im Voraus deinen [Rapid API] Key generieren lassen u
 > Bitte gib den Rapid-API Key ein:
 `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
-Wenn du den Webhook noch nie Konfiguriert hast für einen Channel, musst du (falls vorhanden) die generierte `.env` Datei löschen und das Skript erneut ausführen. So werden alle fragen erneut gefragt. Wichtig ist dabei diese Frage:
+Wenn du den Webhook noch nie konfiguriert für einen Channel konfiguriert hast, musst du (falls vorhanden) die generierte `.env` Datei löschen und das Skript erneut ausführen. So werden alle Fragen erneut gefragt. Wichtig ist dabei diese Frage:
 <p align="center">
 <img src="media/examples/NewMessage.png" width="65%">
 </p>
@@ -57,38 +62,40 @@ Wenn du den Webhook noch nie Konfiguriert hast für einen Channel, musst du (fal
 > Wie lautet die MessageID der gesendeten Nachricht?:
 `XXXXXXXXXXXXXXXXXX`
 
-Um die ID herauszufinden musst du den [Developer Mode] auf Discord aktiviert haben. Dann klickst du rechts, neben der Nachricht auf die Punkte und wählst `Copy ID` aus. Die ID wird dir dann direkt in das Clipboard gespeichert und du kannst mit Rechtsklick diesen in die Konsole einfügen.
-<br/><br/>
+Um die ID herauszufinden musst du den [Developer Mode] auf Discord aktiviert haben. Dann klickst du rechts, neben der Nachricht auf die Punkte und wählst `Copy ID` aus. Die ID wird dir dann direkt in das Clipboard gespeichert und du kannst mit Rechtsklick diese in die Konsole einfügen.
+<br><br>
 
-### Währungen
-Um die normale Währung zu ändern musst du nach dem Setup den Webhook mit <kbd>CTRL</kbd> + <kbd>C</kbd> stoppen und in `.env` die Werte dazu anpassen. Dort gelten die [ISO-4217] Währungskürzel. Für die Cryptowährungen gelten die bekanntesten. Leider gibt es hierfür keine Liste.
+## Währungen
+Um die normale Währung zu ändern musst du nach dem Setup den Webhook mit <kbd>CTRL</kbd> + <kbd>C</kbd> stoppen und in `.env` die Werte dazu anpassen (JSON Wert "currency" und "cryptocurrency"). Dort gelten die [ISO-4217] Währungskürzel. Für die Cryptowährungen gelten die bekanntesten. Leider gibt es hierfür keine Liste.
+
+Was man ausserdem auch machen kann ist zwei normale Wärhungen miteinander vergleichen, wie zum Beispiel Euro (EUR) mit Schweizer Franken (CHF).
 
 <br>
 
-Nun sollte der Webhook im Hintergrund die Nachricht solange aktualisieren, wie das Terminal offen bleibt.
+Nun sollte der Webhook im Hintergrund die Nachricht mit den Währungskursen solange aktualisieren, wie das Terminal/Konsole offen bleibt.
 
 **Viel Spass**
-<br/><br/>
+<br><br>
 
 # Informationen zum Projekt
 ## Projektidee mit Zusammenfassung
 
 Dies ist das Projekt der Kalenderwoche 41 im ZLI in Zürich. Der Auftrag ist es etwas mit einer API zu machen und im Team zu arbeiten.
 
-Unsere Projektidee ist einen Webhook auf Discord in einem Server zu erstellen, der alle paar Sekunden von der [Coinbase API] den bevorzugten Cryptowährungspreis (zum Beispiel [Bitcoin]) abruft und ausgibt. Der Webhook schickt bei der Ausführung einmal eine Nachricht mit einem sogennanten Discord Embed, das den aktuellen Preis mit eventuell einem Verlauf anzeigt. Der Preis sollte dann automatisch, solange die PHP Session bestehen bleibt, jede 1-2 Minuten aktualisiert werden (indem die Nachricht editiert wird).<br/><br/>
+Unsere Projektidee ist einen Webhook auf Discord in einem Server zu erstellen, der alle paar Sekunden von der [Coinbase API] den bevorzugten Cryptowährungspreis (zum Beispiel [Bitcoin]) abruft und ausgibt. Der Webhook schickt bei der Ausführung einmal eine Nachricht mit einem sogennanten Discord Embed, das den aktuellen Preis mit eventuell einem Verlauf anzeigt. Der Preis sollte dann automatisch, solange die PHP Session bestehen (Konsole geöffnet) bleibt, jede 1-2 Minuten aktualisiert werden (indem die Nachricht editiert wird).<br><br>
 
 
 ## APIs
 
 Wir möchten die [Discord Webhook] API für unser Projekt benutzen, die sehr gut dokumentiert und nicht all zu leicht ist. Dort können wir unsere Applikation ([Coinbase API]) mit Discord verknüpfen.
 
-Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht.
-<br/><br/>
+Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht bei Einer Abfrage pro Zwei Minuten.
+<br><br>
 
 
 ## Docker Container
 
-Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi]. So ist nachher, wenn man das Projekt herunterlädt, gleich alles funktionstüchtig und auf der neusten Version ist.<br/><br/>
+Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi]. So ist nachher, wenn man das Projekt herunterlädt, gleich alles funktionstüchtig und auf der neusten Version.<br/><br/>
 
 ## SMART Ziele
 - Funktionierende Discord Webhook Applikation mit PHP das Nachrichten in einem Channel sendet und diese mit verschiedenen Intervals editiert bis Ende Woche erarbeiten.
@@ -96,7 +103,7 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 - Verstehen der Discord Webhook API.
 - Das Scrum Model anwenden.
 - Einen guten Teamgeist und Teamarbeit haben.
-<br/><br/>
+<br><br>
 
 ## Teammitglieder und User Stories
 
@@ -107,7 +114,7 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 - <strong>Marc Willhelm (API-1)</strong>
     - Als Entwickler möchte ich ein möglichst "cleanes", vertsändliches Produkt abliefern, damit es jeder verstehen kann.
     - Als Benutzer möchte ich mühelos Updates über den Cryptomarkt haben, damit ich immer auf dem neusten Stand bleibe.
-<br/><br/>
+<br><br>
 
 ## Team Kodex
 1. Ehrlichkeit hat hier oberste Priorität.
