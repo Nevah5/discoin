@@ -9,7 +9,7 @@
 <br>
 
 # Installation
-> Dieser Bereich steht noch unter Bearbeitung
+> How to Instal
 
 <br>
 <br>
