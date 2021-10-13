@@ -53,16 +53,15 @@ Hoffentlich hast du bereits im Voraus deinen [Rapid API] Key generieren lassen u
 `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
 Wenn du den Webhook noch nie Konfiguriert hast für einen Channel, musst du (falls vorhanden) die generierte `.env` Datei löschen und das Skript erneut ausführen. So werden alle fragen erneut gefragt. Wichtig ist dabei diese Frage:
+<img src="media/examples/NewMessage.png" width="85%">
 > Wie lautet die MessageID der gesendeten Nachricht?:
 `XXXXXXXXXXXXXXXXXX`
-
-> **BILD PLATZHALTER**
 
 Um die ID herauszufinden musst du den [Developer Mode] auf Discord aktiviert haben. Dann klickst du rechts, neben der Nachricht auf die Punkte und wählst `Copy ID` aus. Die ID wird dir dann direkt in das Clipboard gespeichert und du kannst mit Rechtsklick diesen in die Konsole einfügen.
 <br/><br/>
 
 ### Währungen
-Um die normale Währung zu ändern musst du nach dem Setup den Webhook mit <kbd>CTRL</kbd> + <kbd>C</kbd> stoppen und in `.env` die Werte dazu anpassen. Dort gelten die [ISO-4217] Währungskürzel. Für die Cryptowährungen gelten die bekanntesten. Leider gibt es hier für keine Liste.
+Um die normale Währung zu ändern musst du nach dem Setup den Webhook mit <kbd>CTRL</kbd> + <kbd>C</kbd> stoppen und in `.env` die Werte dazu anpassen. Dort gelten die [ISO-4217] Währungskürzel. Für die Cryptowährungen gelten die bekanntesten. Leider gibt es hierfür keine Liste.
 
 <br>
 
