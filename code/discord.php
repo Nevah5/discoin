@@ -36,7 +36,7 @@ function discordMessage($type)
                     "title" => "$cryptocurrency Kurs zu $currency",
                     "type" => "rich",
                     "description" => $pricedescription,
-                    "timestamp" => date("c", strtotime("now")),
+                    "timestamp" => date("c", time()),
                     "color" => hexdec("0052FF"),
                     "footer" => [
                         "text" => "Discoin",
@@ -57,7 +57,7 @@ function discordMessage($type)
                         ],
                         [
                             "name" => "Aktualisiert am:",
-                            "value" => date("d.m.Y H:i:s", strtotime("+2 hours")),
+                            "value" => date("d.m.Y H:i:s", time()),
                             "inline" => false
                         ],
                         [
@@ -82,7 +82,7 @@ function discordMessage($type)
                     "title" => "Erste Nachricht",
                     "type" => "rich",
                     "description" => "Bitte kopiere die MessageID dieser Nachricht und fuege sie in das Terminal ein.",
-                    "timestamp" => date("c", strtotime("now")),
+                    "timestamp" => date("c", time()),
                     "color" => hexdec("2EA043"),
                     "footer" => [
                         "text" => "Discoin",

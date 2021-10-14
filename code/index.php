@@ -29,19 +29,19 @@ function dataHistory($resp)
             $data[$i] = $data[$i+1];
             $data[$i+1] = [
                 "price" => round($resp["price"], 2),
-                "timestamp" => date("d.m.Y H:i:s", strtotime("+2 hours")),
+                "timestamp" => date("d.m.Y H:i:s", time()),
             ];
         }
     }else{
         $data[] = [
             "price" => round($resp["price"], 2),
-            "timestamp" => date("d.m.Y H:i:s", strtotime("+2 hours")),
+            "timestamp" => date("d.m.Y H:i:s", time()),
         ];
     }
 
     //puts all the last data values into a string
     foreach($data as $key => $value){
         $num = (string) $key + 1;
-        $datastr .= "> $num. " . $value["price"] . " $currency -> " . $value["timestamp"] . "\n";
+        $datastr .= "> $num) " . $value["price"] . " $currency -> " . $value["timestamp"] . "\n";
     }
 }
