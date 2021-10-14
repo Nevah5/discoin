@@ -8,19 +8,13 @@
 --------------------------
 <br>
 
-# Installation für Windows 10
-Die Installation des Discoin Webhooks ist sehr einfach, wenn man diese Schritte befolgt
-<br><br>
-
+# Installation Windows
 ## Voraussetzungen
 - [Docker] vollständig installiert
 - [Discord] und einen [Webhook]
 - Konsole/Terminal nach Wahl (PowerShell, CMD, etc.)
-<br/><br/>
-
-## Rapid API Key
-Für die Rapid API, die mit der Twelvedata API verknüpft ist, braucht man den RapidAPI Key. Dazu [erstellst du dir einen Account](https://rapidapi.com/auth/sign-up?referral=/hub). Nachdem navigierst du zu [Pricing](https://rapidapi.com/twelvedata/api/twelve-data1/pricing) und musst dort erstmals den Account für den Plan auswählen. Dann abonnierst du den Basic Plan (dieser ist gratis). Nun sollte für dich der API-Key funktionieren, den du unter "[Endpoints](https://rapidapi.com/twelvedata/api/twelve-data1/)" findest. (Dieser ist mit `X-RapidAPI-Key` unter der Kategorie `Exchanges` beschriftet.)
-<br><br>
+- [Rapid API Key](https://github.com/Nevah5/discoin#rapid-api-key)
+<br/>
 
 ## Docker Container
 Nach dem Download und entzippen muss man den Docker-Container ausführen installieren und starten.  Dazu öffnest du eine Konsole/Terminal deine Wahl.
@@ -38,7 +32,30 @@ Du solltest dich dann in der Linux Bash im Ordner `/opt/code` landen. Zuletzt mu
 
     php index.php
 
-eingeben. Dann wird die Applikation samt Setup ausgeführt.
+eingeben. Dann wird die Applikation samt Setup ausgeführt. Wie du durch das Setup navigierst, findest du [hier](https://github.com/Nevah5/discoin#setup-discoin-applikation).
+<br><br>
+
+# Installation Linux
+## Voraussetzungen
+- [PHP](https://linuxize.com/post/how-to-install-php-on-ubuntu-18-04/) vollständig installiert
+- [Discord] und einen [Webhook]
+- Linux Shell
+- [Rapid API Key](https://github.com/Nevah5/discoin#rapid-api-key)
+## Ausführung
+Um die Applikation in Linux zu starten, musst du erstmals in das Projektverzeichnis in der Shell navigieren. Dort gehst du in den Ordner `code/` mit
+```
+cd code/
+```
+Folgend startest du nur noch die `index.php` Datei mit:
+```
+php index.php
+```
+Das war es bereits! Führe nun [hier](https://github.com/Nevah5/discoin#setup-discoin-applikation) fort.
+<br><br>
+
+# Allgemeines Setup
+## Rapid API Key
+Für die Rapid API, die mit der Twelvedata API verknüpft ist, braucht man den RapidAPI Key. Dazu [erstellst du dir einen Account](https://rapidapi.com/auth/sign-up?referral=/hub). Nachdem navigierst du zu [Pricing](https://rapidapi.com/twelvedata/api/twelve-data1/pricing) und musst dort erstmals den Account für den Plan auswählen. Dann abonnierst du den Basic Plan (dieser ist gratis). Nun sollte für dich der API-Key funktionieren, den du unter "[Endpoints](https://rapidapi.com/twelvedata/api/twelve-data1/)" findest. (Dieser ist mit `X-RapidAPI-Key` unter der Kategorie `Exchanges` beschriftet.)
 <br><br>
 
 ## Setup Discoin Applikation
@@ -75,7 +92,7 @@ Was man ausserdem auch machen kann ist zwei normale Wärhungen miteinander vergl
 Nun sollte der Webhook im Hintergrund die Nachricht mit den Währungskursen solange aktualisieren, wie das Terminal/Konsole offen bleibt.
 
 **Viel Spass**
-<br><br>
+<br><br><br>
 
 # Informationen zum Projekt
 ## Projektidee mit Zusammenfassung
