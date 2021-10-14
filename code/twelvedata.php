@@ -43,6 +43,8 @@ function lastDayValue()
 {
     global $config;
     global $lastDayValue;
+    $key = $config["api-key"];
+    $host = $config["api-host"];
     $cryptocurrency = $config["cryptocurrency"];
     $currency = $config["currency"];
     //gets the value of the cryptocurrency from last day
@@ -58,8 +60,8 @@ function lastDayValue()
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => [
-            "x-rapidapi-host: twelve-data1.p.rapidapi.com",
-            "x-rapidapi-key: ea242eef3cmshe478af85d23fb18p13bd4ejsnb1b674a68643"
+            "x-rapidapi-host: $host",
+            "x-rapidapi-key: $key",
         ],
     ]);
 
