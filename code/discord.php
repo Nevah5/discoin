@@ -27,7 +27,7 @@ function discordMessage($type)
         $pricedescription .= $response["price"] < $lastDayValue ? "**billiger**" : "**teurer**";
         $pricedescription .= " als gestern! (**$pricediffpercent%**)";
         //prints the value from yesterday
-        $pricedescription .= "\nDer Wert gestern (" . date("d.m.Y",strtotime("-1 day")) . ") betrug **" . round($lastDayValue, 2) . " $currency**.";
+        $pricedescription .= "\nDer Wert gestern (" . date("d.m.Y",strtotime("-1 day")) . ") betrug **" . number_format(round($response["price"], 2), 2) . " $currency**.";
 
         $hookObject = json_encode([
             //message
@@ -40,7 +40,7 @@ function discordMessage($type)
                 [
                     "title" => "$cryptocurrency Kurs zu $currency",
                     "type" => "rich",
-                    "description" => $pricedescription,
+                    "description" => number_format(round($response["price"], 2), 2) . " " . $config["currency"],
                     "timestamp" => date("c", time()),
                     "color" => hexdec("0052FF"),
                     "footer" => [
@@ -56,8 +56,8 @@ function discordMessage($type)
                     ],
                     "fields" => [
                         [
-                            "name" => "1 $cryptocurrency Preis:",
-                            "value" => round($response["price"], 2) . " " . $config["currency"],
+                            "name" => "Preisbeschreibung",
+                            "value" => $pricedescription,
                             "inline" => false
                         ],
                         [
