@@ -50,6 +50,9 @@ function discordMessage($type)
                     "thumbnail" => [
                         "url" => "https://raw.githubusercontent.com/Nevah5/discoin/main/media/logo-font.png"
                     ],
+                    "image" => [
+                        "url" => getChartURL(),
+                    ],
                     "author" => [
                         "name" => "Discoin - GitHub",
                         "url" => "https://github.com/Nevah5/discoin"

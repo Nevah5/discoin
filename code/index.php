@@ -2,6 +2,7 @@
 
 include("discord.php");
 include("twelvedata.php");
+include("quickchartio.php");
 include("cli.php");
 setup();
 $data = [];
