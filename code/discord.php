@@ -43,7 +43,7 @@ function discordMessage($type)
                         "icon_url" => "https://cdn.discordapp.com/avatars/897460944442109952/a1b7f7a4c29fb4853ee5ca45386570b7.webp?size=256",
                     ],
                     "thumbnail" => [
-                        "url" => "https://cdn.discordapp.com/avatars/897460944442109952/a1b7f7a4c29fb4853ee5ca45386570b7.webp?size=512"
+                        "url" => "https://raw.githubusercontent.com/Nevah5/discoin/main/media/logo-font.png"
                     ],
                     "author" => [
                         "name" => "Discoin - GitHub",
