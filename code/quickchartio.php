@@ -7,42 +7,13 @@ function getChartURL()
     $currency = $config["currency"];
     $crypto = $config["cryptocurrency"];
     //gets chart url from Quickchart.io
-    $chartConfigArr = array(
-        'type' => 'line',
-        'data' => array(
-            'labels' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-            'datasets' => array(
-                array(
-                    'label' => "$crypto in $currency",
-                    'responsive'=>true,
-                    'fill' => '#0051FF',
-                    'borderColor' => '#0051FF',
-                    'backgroundColor' => '#0051FF',
-                    'data' => array()
-                )
-            )
-        ),
-        'options'=> [
-            'legend'=> [
-                'labels' => [
-                    'fontColor'=> "#FFFFFF",
-                ],
-            ],
-        ],
-    );
-    $chartConfigArr["data"]["datasets"][0]["data"] = [];
-    foreach($data as $value){
-        // $chartConfigArr["labels"][] = (string) $value["timestamp"];
-        $chartConfigArr["data"]["datasets"][0]["data"][] = number_format($value["price"], 0, "," ,"");
-        echo "Added " . $value["price"] . PHP_EOL;
-        echo "Added " . $value["timestamp"] . PHP_EOL. PHP_EOL;
-        // var_dump($chartConfigArr);
-        echo "\n\n";
-        // exit;
+    $data1 = "";
+    foreach($data as $key => $value){
+        $data1 .= $key > 0 ? "," : "";
+        $data1 .= (string) round($value["price"], 0);
     }
-
-    $chartConfigJSON = json_encode($chartConfigArr);
-    $chartUrl = 'https://quickchart.io/chart?w=400&h=250&c=' . urlencode($chartConfigJSON);
+    //edit template = https://quickchart.io/chart-maker/edit/zm-a9bdc7f7-1bfd-498e-b866-d14f77c9c541
+    $chartUrl = 'https://quickchart.io/chart/render/zm-4a8223aa-e6b9-4c33-8e29-5870d73c533f?data1=' . $data1;
 
     return $chartUrl;
 }
