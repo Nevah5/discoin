@@ -6,6 +6,7 @@ function discordMessage($type)
     $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
     lastDayValue();
     global $response;
+    global $chartConfig;
     global $datastr;
     global $lastDayValue;
     $currency = $config["currency"];

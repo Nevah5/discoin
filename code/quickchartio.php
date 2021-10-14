@@ -10,13 +10,15 @@ function getChartURL()
     $chartConfigArr = array(
         'type' => 'line',
         'data' => array(
-        'labels' => [],
-        'datasets' => array(
-            array(
-                'fill' => false,
-                'borderColor' => '#051FF0',
-                'label' => "$crypto in $currency",
-                'data' => []
+            'labels' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            'datasets' => array(
+                array(
+                    'label' => "$crypto in $currency",
+                    'responsive'=>true,
+                    'fill' => '#0051FF',
+                    'borderColor' => '#0051FF',
+                    'backgroundColor' => '#0051FF',
+                    'data' => array()
                 )
             )
         ),
@@ -26,27 +28,21 @@ function getChartURL()
                     'fontColor'=> "#FFFFFF",
                 ],
             ],
-            'scales'=> [
-                'yAxes'=> [[
-                    'ticks'=> [
-                        'fontColor'=> "#FFFFFF",
-                    ]
-                ]],
-                'xAxes'=> [[
-                    'ticks'=> [
-                        'fontColor'=> "#FFFFFF",
-                    ]
-                ]]
-            ]
         ],
     );
+    $chartConfigArr["data"]["datasets"][0]["data"] = [];
     foreach($data as $value){
-        $chartConfig["labels"][] = $value["timestamp"];
-        $chartConfig["datasets"][0]["data"] = $value["price"];
+        // $chartConfigArr["labels"][] = (string) $value["timestamp"];
+        $chartConfigArr["data"]["datasets"][0]["data"][] = number_format($value["price"], 0, "," ,"");
+        echo "Added " . $value["price"] . PHP_EOL;
+        echo "Added " . $value["timestamp"] . PHP_EOL. PHP_EOL;
+        // var_dump($chartConfigArr);
+        echo "\n\n";
+        // exit;
     }
 
-    $chartConfig = json_encode($chartConfigArr);
-    $chartUrl = 'https://quickchart.io/chart?w=400&h=250&c=' . urlencode($chartConfig);
+    $chartConfigJSON = json_encode($chartConfigArr);
+    $chartUrl = 'https://quickchart.io/chart?w=400&h=250&c=' . urlencode($chartConfigJSON);
 
     return $chartUrl;
 }

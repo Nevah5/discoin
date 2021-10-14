@@ -27,13 +27,13 @@ function dataHistory($resp)
         for ($i = 0; $i < count($data) - 1; $i++) {
             $data[$i] = $data[$i + 1];
             $data[$i + 1] = [
-                "price" => number_format(round($resp["price"], 2), 2),
+                "price" => number_format(round($resp["price"], 2), 2, ",", ""),
                 "timestamp" => date("d.m.Y H:i:s", time()),
             ];
         }
     } else {
         $data[] = [
-            "price" => number_format(round($resp["price"], 2), 2),
+            "price" => number_format(round($resp["price"], 2), 2, ",", ""),
             "timestamp" => date("d.m.Y H:i:s", time()),
         ];
     }
