@@ -41,9 +41,9 @@ function setup()
         echo PHP_EOL . PHP_EOL;
     }
 
-    while($config["delay"] < 120){
-        echo "Das Delay muss laenger oder gleich 120 Sekunden sein!" . PHP_EOL;
-        $config["delay"] = (int) readline("Wie viel Delay (in Sekunden) möchtest du zwischen jeder Aktualisierung haben?: (120-X)" . PHP_EOL);
+    while($config["delay"] < 300){
+        echo "Das Delay muss laenger oder gleich 300 Sekunden sein!" . PHP_EOL;
+        $config["delay"] = (int) readline("Wie viel Delay (in Sekunden) möchtest du zwischen jeder Aktualisierung haben?: (min. 300)" . PHP_EOL);
     }
     file_put_contents('.env', json_encode($config));
 }

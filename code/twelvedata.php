@@ -38,3 +38,38 @@ function getCrypto()
 
     curl_close($curl);
 }
+
+function lastDayValue()
+{
+    global $config;
+    global $lastDayValue;
+    $cryptocurrency = $config["cryptocurrency"];
+    $currency = $config["currency"];
+    //gets the value of the cryptocurrency from last day
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://twelve-data1.p.rapidapi.com/time_series?symbol=$cryptocurrency%2F$currency&interval=1day&outputsize=2&format=json",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "x-rapidapi-host: twelve-data1.p.rapidapi.com",
+            "x-rapidapi-key: ea242eef3cmshe478af85d23fb18p13bd4ejsnb1b674a68643"
+        ],
+    ]);
+
+    $query = curl_exec($curl);
+    $lastDayValue = json_decode($query, JSON_OBJECT_AS_ARRAY)["values"][1]["open"];
+    $err = curl_error($curl);
+
+    $response = curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    }
+}

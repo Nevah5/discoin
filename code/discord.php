@@ -4,9 +4,10 @@ function discordMessage($type)
 {
     //Discord Webhook API
     $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
+    lastDayValue();
     global $response;
     global $datastr;
-    global $data;
+    global $lastDayValue;
     $currency = $config["currency"];
     $cryptocurrency = $config["cryptocurrency"];
 
@@ -18,11 +19,15 @@ function discordMessage($type)
     }
     if($type == "edit"){
         //calculates the percentage from the last price
-        $pricediffpercent = (string) round($response["price"] / $data[0]["price"] * 100 - 100, 2);
+        $pricediffpercent = (string) round($response["price"] / $lastDayValue * 100 - 100, 2);
         //adds a "+" infront of percentage if positive
         $pricediffpercent = $pricediffpercent >= 0 ? "+" . $pricediffpercent : $pricediffpercent;
         //gives a little description with percentage to the current cryptoprice
-        $pricedescription = $response["price"] < $data[0]["price"] ? "Der Wert sinkt zurzeit! ($pricediffpercent%)" : "Der Wert steigt zurzeit! ($pricediffpercent%)";
+        $pricedescription = "Der Wert zurzeit ist ";
+        $pricedescription .= $response["price"] < $lastDayValue ? "**billiger**" : "**teurer**";
+        $pricedescription .= " als gestern! (**$pricediffpercent%**)";
+        //prints the value from yesterday
+        $pricedescription .= "\nDer Wert gestern (" . date("d.m.Y",strtotime("-1 day")) . ") betrug **" . round($lastDayValue, 2) . " $currency**.";
 
         $hookObject = json_encode([
             //message
