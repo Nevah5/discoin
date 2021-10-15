@@ -113,7 +113,13 @@ Was man ausserdem auch machen kann ist zwei normale Wärhungen miteinander vergl
 
 Nun sollte der Webhook im Hintergrund die Nachricht mit den Währungskursen solange aktualisieren, wie das Terminal/Konsole offen bleibt.
 
-**Viel Spass**
+<p align="center">
+<img src="media/examples/CryptoValueMessage.png" width="50%">
+</p>
+
+<p align="center"><strong>Viel Spass</strong></p>
+
+
 <br><br><br>
 
 # Informationen zum Projekt
