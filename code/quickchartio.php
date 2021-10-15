@@ -4,8 +4,6 @@ function getChartURL()
 {
     global $config;
     global $data;
-    $currency = $config["currency"];
-    $crypto = $config["cryptocurrency"];
     //gets chart url from Quickchart.io
     $data1 = "";
     foreach ($data as $key => $value) {

@@ -69,8 +69,6 @@ function lastDayValue()
     $lastDayValue = json_decode($query, JSON_OBJECT_AS_ARRAY)["values"][1]["open"];
     $err = curl_error($curl);
 
-    $response = curl_close($curl);
-
     if ($err) {
         echo "cURL Error #:" . $err;
     }
