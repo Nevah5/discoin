@@ -8,7 +8,7 @@ function getChartURL()
     $crypto = $config["cryptocurrency"];
     //gets chart url from Quickchart.io
     $data1 = "";
-    foreach($data as $key => $value){
+    foreach ($data as $key => $value) {
         $data1 .= $key > 0 ? "," : "";
         $data1 .= (string) round($value["price"], 0);
     }
