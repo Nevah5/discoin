@@ -11,7 +11,7 @@
 - [Installation Windows](https://github.com/Nevah5/discoin#installation-windows)
     - [Voraussetzungen](https://github.com/Nevah5/discoin#voraussetzungen)
     - [Docker Container](https://github.com/Nevah5/discoin#docker-container)
-- [Installation Linux]()
+- [Installation Linux](https://github.com/Nevah5/discoin#installation-linux)
     - [Voraussetzungen](https://github.com/Nevah5/discoin#voraussetzungen-1)
     - [Ausführung](https://github.com/Nevah5/discoin#ausf%C3%BChrung)
 - [Allgemeines Setup](https://github.com/Nevah5/discoin#allgemeines-setup)
