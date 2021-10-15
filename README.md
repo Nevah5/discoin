@@ -126,9 +126,10 @@ Unsere Projektidee ist einen Webhook auf Discord in einem Server zu erstellen, d
 
 ## APIs
 
-Wir möchten die [Discord Webhook] API für unser Projekt benutzen, die sehr gut dokumentiert und nicht all zu leicht ist. Dort können wir unsere Applikation ([Coinbase API]) mit Discord verknüpfen.
+Wir wollten für unser Projekt die [Discord Webhook] API für unser Projekt benutzen, die sehr gut dokumentiert und nicht all zu leicht ist. Der Wert des Bitcoins wollten wir zuerst mit der [Coinbase API] bekommen, jedoch war dies nicht möglich, da man sich registrieren und dazu 18 sein und ein Bild der ID hochlasden musste.
+Marc suchte dann kurz nach einer neuen. Diese war die [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht bei Einer Abfrage pro Zwei Minuten. Nachdem wir diese getestet hatten und diese perfekt funktionierte, blieben wir dann auch bei dieser.
 
-Um den zurzeitigen Preis der Währung zu bekommen wollten wir zuerst die [Coinbase API] benutzen, jedoch brauchte man dafür einen Token, der man nur mit einer gültigen ID bekommt, wenn man über 18 Jahre alt ist. Marc suchte dann kurz nach einer neuen. Die neue heisst [Rapid API] (funktioniert mit [Twelvedata]) und hat eine maximale Requestrate von 800/Tag, was ausreicht bei Einer Abfrage pro Zwei Minuten.
+Ein anderes Ziel, dass wir mitten im Projekt hinzufügt hatten war es noch ein Diagramm und eine Data-History der letzten 10 Werten hinzufügen. Dazu informierten wir uns über die [Quickchart.io] API. Der Rest war alles möglich mit PHP.
 <br><br>
 
 
@@ -174,3 +175,4 @@ Um PHP einfacher benutzen zu können benutzen wir den [Container] von [foxfabi].
 [Webhook]: https://support.discord.com/hc/de/articles/228383668-Einleitung-in-Webhooks
 [Developer Mode]: https://www.howtogeek.com/714348/how-to-enable-or-disable-developer-mode-on-discord/
 [ISO-4217]: https://de.wikipedia.org/wiki/ISO_4217
+[Quickchart.io]: https://quickchart.io/
