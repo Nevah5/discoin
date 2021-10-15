@@ -6,11 +6,11 @@ function discordMessage($type)
     $config = json_decode(file_get_contents('.env'), JSON_OBJECT_AS_ARRAY);
     lastDayValue();
     global $response;
-    global $chartConfig;
     global $datastr;
     global $lastDayValue;
     $currency = $config["currency"];
     $cryptocurrency = $config["cryptocurrency"];
+    $delay = gmdate("H:i", $config["delay"]) . "h";
 
     //changes url when edit message
     if ($type == "edit") {
@@ -66,7 +66,7 @@ function discordMessage($type)
                         ],
                         [
                             "name" => "Aktualisiert am:",
-                            "value" => date("d.m.Y H:i:s", time()),
+                            "value" => date("d.m.Y H:i:s", time()) . "\nInteval: $delay",
                             "inline" => false
                         ],
                         [
