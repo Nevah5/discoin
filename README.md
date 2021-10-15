@@ -4,8 +4,30 @@
     Ein PHP-Skript um einen Kryptowährungspreis<br>
     in Discord darzustellen.
 </p>
+<br>
 
---------------------------
+# Inhaltsverzeichnis
+
+- [Installation Windows](https://github.com/Nevah5/discoin#installation-windows)
+    - [Voraussetzungen](https://github.com/Nevah5/discoin#voraussetzungen)
+    - [Docker Container](https://github.com/Nevah5/discoin#docker-container)
+- [Installation Linux]()
+    - [Voraussetzungen](https://github.com/Nevah5/discoin#voraussetzungen-1)
+    - [Ausführung](https://github.com/Nevah5/discoin#ausf%C3%BChrung)
+- [Allgemeines Setup](https://github.com/Nevah5/discoin#allgemeines-setup)
+    - [Rapid API Key](https://github.com/Nevah5/discoin#rapid-api-key)
+    - [Setup Discoin Applikation](https://github.com/Nevah5/discoin#allgemeines-setup)
+    - [Währungen](https://github.com/Nevah5/discoin#allgemeines-setup)
+- [Informationen zum Projekt](https://github.com/Nevah5/discoin#informationen-zum-projekt)
+    - [Projektidee mit Zusammenfassung](https://github.com/Nevah5/discoin#projektidee-mit-zusammenfassung)
+    - [APIs](https://github.com/Nevah5/discoin#informationen-zum-projekt)
+    - [Docker Container](https://github.com/Nevah5/discoin#informationen-zum-projekt)
+    - [Teammitglieder mit User Stories](https://github.com/Nevah5/discoin#informationen-zum-projekt)
+    - [Team Kodex](https://github.com/Nevah5/discoin#team-kodex)
+
+<br>
+
+---------------------------
 <br>
 
 # Installation Windows
