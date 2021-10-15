@@ -106,25 +106,15 @@ function discordMessage($type)
     $ch = curl_init();
 
     $type == "edit" ? curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH') : 0;
-    if ($type == "edit") {
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $url,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $hook_edit,
-            CURLOPT_HTTPHEADER => [
-                "Content-Type: application/json"
-            ]
-        ]);
-    } else {
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $url,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $hook_new,
-            CURLOPT_HTTPHEADER => [
-                "Content-Type: application/json"
-            ]
-        ]);
-    }
+    $hook = $type == "edit" ? $hook_edit : $hook_new;
+    curl_setopt_array($ch, [
+        CURLOPT_URL => $url,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $hook,
+        CURLOPT_HTTPHEADER => [
+            "Content-Type: application/json"
+        ]
+    ]);
 
     curl_exec($ch);
     curl_close($ch);
